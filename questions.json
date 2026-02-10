@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which structure is used to represent a character device in the Linux kernel?",
+    "options": {
+      "A": "inode",
+      "B": "file",
+      "C": "cdev",
+      "D": "dentry"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which function is used to register a character device in Linux?",
+    "options": {
+      "A": "register_chrdev()",
+      "B": "alloc_chrdev_region()",
+      "C": "cdev_add()",
+      "D": "All of the above"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "Which kernel structure represents an open file?",
+    "options": {
+      "A": "inode",
+      "B": "file",
+      "C": "dentry",
+      "D": "super_block"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which function is called when a character device file is opened?",
+    "options": {
+      "A": "read()",
+      "B": "write()",
+      "C": "open()",
+      "D": "file_operations.open"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "Which macro is used to define the license of a Linux kernel module?",
+    "options": {
+      "A": "MODULE_AUTHOR",
+      "B": "MODULE_DESCRIPTION",
+      "C": "MODULE_LICENSE",
+      "D": "MODULE_VERSION"
+    },
+    "answer": "C"
+  }
+]

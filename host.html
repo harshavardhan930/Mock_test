@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Host Control Panel</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f2f4f7;
+  padding: 20px;
+}
+.section {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.start { background: #28a745; color: white; }
+.stop { background: #dc3545; color: white; }
+.clear { background: #6c757d; color: white; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background: #007bff;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🧑‍🏫 Host Control Panel</h2>
+
+<div class="section">
+  <h3>Exam Settings</h3>
+
+  <label>
+    Exam Duration (minutes):
+    <input type="number" id="examTime" value="2" min="1">
+  </label>
+
+  <br><br>
+
+  <label>
+    <input type="checkbox" id="negSwitch">
+    Enable Negative Marking
+  </label>
+
+  <br><br>
+
+  <label>
+    Negative Mark per Wrong Answer:
+    <select id="negValue" disabled>
+      <option value="0.25">0.25</option>
+      <option value="0.5">0.5</option>
+      <option value="1">1</option>
+    </select>
+  </label>
+</div>
+
+<div class="section">
+  <button class="start" onclick="startExam()">Start Exam</button>
+  <button class="stop" onclick="stopExam()">Stop Exam</button>
+  <button class="clear" onclick="clearResults()">Clear Results</button>
+</div>
+
+<h3>Participant Results</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Correct</th>
+  <th>Negative</th>
+  <th>Final Score</th>
+</tr>
+</thead>
+<tbody id="resultTable"></tbody>
+</table>
+
+<script>
+const negSwitch = document.getElementById("negSwitch");
+const negValue = document.getElementById("negValue");
+
+negSwitch.addEventListener("change", () => {
+  negValue.disabled = !negSwitch.checked;
+});
+
+function startExam() {
+  const sessionId = Date.now(); // unique session
+  const time = parseInt(document.getElementById("examTime").value) * 60;
+  const negEnabled = negSwitch.checked;
+  const negMark = negEnabled ? parseFloat(negValue.value) : 0;
+
+  localStorage.setItem("examSessionId", sessionId);
+  localStorage.setItem("examStatus", "started");
+  localStorage.setItem("examTime", time);
+  localStorage.setItem("negativeEnabled", negEnabled);
+  localStorage.setItem("negativeMark", negMark);
+}
+
+function stopExam() {
+  localStorage.setItem("examStatus", "stopped");
+}
+
+function clearResults() {
+  localStorage.removeItem("quizResults");
+}
+
+function loadResults() {
+  const table = document.getElementById("resultTable");
+  table.innerHTML = "";
+
+  const results = JSON.parse(localStorage.getItem("quizResults")) || [];
+  results.forEach(r => {
+    table.innerHTML += `
+      <tr>
+        <td>${r.name}</td>
+        <td>${r.correct}</td>
+        <td>${r.negative}</td>
+        <td>${r.final}</td>
+      </tr>`;
+  });
+}
+
+setInterval(loadResults, 1000);
+</script>
+
+</body>
+</html>

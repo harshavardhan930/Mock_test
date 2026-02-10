@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Examination</title>
+
+<style>
+/* ===== GLOBAL ===== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2f7, #dbe4f0);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.header p {
+  color: #555;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* ===== INPUT ===== */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: #007bff;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #0056b3;
+}
+
+.submit-btn {
+  background: #28a745;
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #1e7e34;
+}
+
+/* ===== WAIT SCREEN ===== */
+.waiting {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+}
+
+/* ===== TIMER ===== */
+#timer {
+  position: sticky;
+  top: 0;
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #ffeeba;
+}
+
+/* ===== QUESTIONS ===== */
+.question {
+  background: #f9fbfd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.question label {
+  display: block;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* ===== ANSWER FEEDBACK ===== */
+.correct {
+  background: #e6ffe6;
+  border-left: 5px solid green;
+}
+
+.wrong {
+  background: #ffe6e6;
+  border-left: 5px solid red;
+}
+
+/* ===== RESULT ===== */
+#result {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#analysis {
+  margin-top: 30px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h2>Online Examination</h2>
+    <p>Please enter your name and wait for the host to start the exam</p>
+  </div>
+
+  <!-- JOIN CARD -->
+  <div class="card">
+    <label><b>Enter Your Name</b></label>
+    <input type="text" id="studentName" placeholder="Your full name">
+    <button class="primary-btn" onclick="joinExam()">Join Exam</button>
+  </div>
+
+  <!-- WAITING -->
+  <div id="waitMsg" class="card waiting" style="display:none;">
+    ⏳ Waiting for host to start the exam...
+  </div>
+
+  <!-- EXAM AREA -->
+  <div id="examArea" style="display:none;">
+    <div id="timer"></div>
+
+    <div class="card">
+      <form id="quizForm"></form>
+      <button class="submit-btn" onclick="submitQuiz()">Submit Exam</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result"></div>
+  <div id="analysis"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

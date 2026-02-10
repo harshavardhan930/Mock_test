@@ -1,52 +1,502 @@
 [
   {
-    "question": "Which structure is used to represent a character device in the Linux kernel?",
+    "question": "Which system call is used to create a new process that shares the same memory space as the parent process in Linux?",
     "options": {
-      "A": "inode",
-      "B": "file",
-      "C": "cdev",
-      "D": "dentry"
+      "A": "fork()",
+      "B": "vfork()",
+      "C": "clone()",
+      "D": "execve()"
     },
     "answer": "C"
   },
   {
-    "question": "Which function is used to register a character device in Linux?",
+    "question": "In a Linux kernel module, which function is used to copy data from kernel space to user space safely?",
     "options": {
-      "A": "register_chrdev()",
-      "B": "alloc_chrdev_region()",
-      "C": "cdev_add()",
-      "D": "All"
-    },
-    "answer": "D"
-  },
-  {
-    "question": "Which kernel structure represents an open file?",
-    "options": {
-      "A": "inode",
-      "B": "file",
-      "C": "dentry",
-      "D": "super_b"
+      "A": "memcpy()",
+      "B": "copy_to_user()",
+      "C": "copy_from_user()",
+      "D": "put_user()"
     },
     "answer": "B"
   },
   {
-    "question": "Which function is called when a character device file is opened?",
+    "question": "What does the 'slab allocator' in the Linux kernel primarily aim to reduce?",
     "options": {
-      "A": "read()",
-      "B": "write()",
-      "C": "open()",
-      "D": "file_operations.open"
+      "A": "External fragmentation",
+      "B": "Internal fragmentation",
+      "C": "CPU cache misses",
+      "D": "Page faults"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which synchronization primitive is preferred in Linux kernel interrupt handlers where the code cannot sleep?",
+    "options": {
+      "A": "Mutex",
+      "B": "Semaphore",
+      "C": "Spinlock",
+      "D": "Condition Variable"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which C function is used to map a file or device into memory, allowing for faster I/O operations?",
+    "options": {
+      "A": "malloc()",
+      "B": "mmap()",
+      "C": "shmget()",
+      "D": "fopen()"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the primary difference between kmalloc() and vmalloc() in Linux kernel programming?",
+    "options": {
+      "A": "kmalloc allocates physically contiguous memory; vmalloc does not",
+      "B": "vmalloc is faster than kmalloc",
+      "C": "kmalloc is used for large buffers; vmalloc for small ones",
+      "D": "kmalloc can sleep; vmalloc never sleeps"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "In the context of POSIX threads, which function is used to ensure a thread waits for another to terminate?",
+    "options": {
+      "A": "pthread_wait()",
+      "B": "pthread_yield()",
+      "C": "pthread_join()",
+      "D": "pthread_exit()"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which signal is sent to a process when it attempts to access memory that it does not have permission to access?",
+    "options": {
+      "A": "SIGINT",
+      "B": "SIGKILL",
+      "C": "SIGSEGV",
+      "D": "SIGBUS"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "The 'Copy-on-Write' (COW) mechanism is triggered during which system call?",
+    "options": {
+      "A": "exec()",
+      "B": "fork()",
+      "C": "wait()",
+      "D": "exit()"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which data structure does the Linux kernel use to represent the state of every process?",
+    "options": {
+      "A": "struct process",
+      "B": "struct thread_info",
+      "C": "struct task_struct",
+      "D": "struct mm_struct"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the role of the 'Major Number' in a Linux device driver?",
+    "options": {
+      "A": "It identifies the specific hardware instance",
+      "B": "It identifies the driver associated with the device",
+      "C": "It indicates the size of the device buffer",
+      "D": "It identifies the bus speed"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following is a characteristic of a 'Zombie' process in Unix/Linux?",
+    "options": {
+      "A": "It is actively running in the background",
+      "B": "It has been terminated but its entry remains in the process table",
+      "C": "It is waiting for I/O completion",
+      "D": "It is a process that has no parent"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "In C, which header file must be included to use the 'errno' variable for system call error reporting?",
+    "options": {
+      "A": "<stdio.h>",
+      "B": "<stdlib.h>",
+      "C": "<errno.h>",
+      "D": "<unistd.h>"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which function is used to change the file offset of an open file descriptor?",
+    "options": {
+      "A": "seek()",
+      "B": "lseek()",
+      "C": "fseek()",
+      "D": "rewind()"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the purpose of 'Atomic operations' in OS kernel development?",
+    "options": {
+      "A": "To speed up floating-point math",
+      "B": "To ensure an operation completes without being interrupted",
+      "C": "To handle large file transfers",
+      "D": "To manage virtual memory pages"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which mechanism allows a process to communicate with another process by writing to a shared buffer managed by the kernel?",
+    "options": {
+      "A": "Pipes",
+      "B": "Signals",
+      "C": "Spinlocks",
+      "D": "Global variables"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "In the VFS (Virtual File System), which object stores information about a specific file stored on a disk?",
+    "options": {
+      "A": "Superblock",
+      "B": "Dentry",
+      "C": "Inode",
+      "D": "File object"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which scheduling policy is typically used for real-time tasks in the Linux kernel?",
+    "options": {
+      "A": "SCHED_OTHER",
+      "B": "SCHED_FIFO",
+      "C": "SCHED_BATCH",
+      "D": "SCHED_IDLE"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What happens if a kernel module tries to use a function that is not exported via EXPORT_SYMBOL?",
+    "options": {
+      "A": "The system crashes",
+      "B": "The module fails to load (Unresolved symbol)",
+      "C": "The module runs slower",
+      "D": "The compiler automatically fixes it"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of these is used to prevent the 'Priority Inversion' problem in OS?",
+    "options": {
+      "A": "Spinlocks",
+      "B": "Priority Inheritance",
+      "C": "Round Robin scheduling",
+      "D": "Virtual memory"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the size of a standard page in most 32-bit x86 Linux systems?",
+    "options": {
+      "A": "2 KB",
+      "B": "4 KB",
+      "C": "8 KB",
+      "D": "1 MB"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which system call replaces the current process image with a new process image?",
+    "options": {
+      "A": "fork()",
+      "B": "clone()",
+      "C": "execve()",
+      "D": "system()"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the purpose of the 'Buddy System' algorithm in OS?",
+    "options": {
+      "A": "CPU scheduling",
+      "B": "Disk scheduling",
+      "C": "Physical memory allocation",
+      "D": "Process synchronization"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which function is used to create a named pipe (FIFO) in C?",
+    "options": {
+      "A": "pipe()",
+      "B": "mkfifo()",
+      "C": "popen()",
+      "D": "socket()"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "In kernel space, which function is equivalent to 'free()' in user space?",
+    "options": {
+      "A": "kfree()",
+      "B": "vfree()",
+      "C": "both A and B",
+      "D": "free_kernel()"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is a 'Critical Section'?",
+    "options": {
+      "A": "A segment of code that must run in the kernel",
+      "B": "A segment of code where shared resources are accessed",
+      "C": "The code responsible for booting the OS",
+      "D": "The code that handles hardware interrupts"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which file in the /proc filesystem provides information about memory usage?",
+    "options": {
+      "A": "/proc/cpuinfo",
+      "B": "/proc/meminfo",
+      "C": "/proc/version",
+      "D": "/proc/mounts"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What does the 'top half' of an interrupt handler do?",
+    "options": {
+      "A": "Performs time-consuming data processing",
+      "B": "Acknowledges the interrupt and schedules the bottom half",
+      "C": "Interacts with user-space applications",
+      "D": "Allocates large memory blocks"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which C function is used to allocate an array of elements and initialize them to zero?",
+    "options": {
+      "A": "malloc()",
+      "B": "calloc()",
+      "C": "realloc()",
+      "D": "sbrk()"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the 'TLB' (Translation Lookaside Buffer) used for?",
+    "options": {
+      "A": "Storing process IDs",
+      "B": "Caching virtual-to-physical address translations",
+      "C": "Managing I/O buffers",
+      "D": "Scheduling threads"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "In a Linux shell, what is the effect of the '&' operator at the end of a command?",
+    "options": {
+      "A": "It pipes the output to another command",
+      "B": "It runs the command in the background",
+      "C": "It redirects errors to a file",
+      "D": "It elevates the process to root"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following is NOT a valid state for a process?",
+    "options": {
+      "A": "Running",
+      "B": "Waiting",
+      "C": "Sleeping",
+      "D": "Executing"
     },
     "answer": "D"
   },
   {
-    "question": "Which macro is used to define the license of a Linux kernel module?",
+    "question": "What is 'Thrashing' in an operating system?",
     "options": {
-      "A": "MODULE_AUTHOR",
-      "B": "MODULE_DESCRIPTION",
-      "C": "MODULE_LICENSE",
-      "D": "MODULE_VERSION"
+      "A": "High CPU utilization with low I/O",
+      "B": "Excessive swapping of pages due to low memory",
+      "C": "A process consuming 100% of the CPU",
+      "D": "A hardware failure in the disk drive"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which mechanism is used to implement system calls in x86 Linux?",
+    "options": {
+      "A": "Software Interrupt (int 0x80)",
+      "B": "Jump instruction",
+      "C": "Function call",
+      "D": "Bus signal"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "What is the 'init' process (PID 1) responsible for?",
+    "options": {
+      "A": "Managing memory for all processes",
+      "B": "The parent of all processes",
+      "C": "Handling hardware interrupts",
+      "D": "Compiling kernel modules"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "In C programming for Unix, what does 'pipe(fd)' return on success?",
+    "options": {
+      "A": "1",
+      "B": "0",
+      "C": "The PID of the child",
+      "D": "The number of bytes read"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following is a 'Preemptive' scheduling algorithm?",
+    "options": {
+      "A": "First-Come, First-Served (FCFS)",
+      "B": "Shortest Job Next (SJN)",
+      "C": "Round Robin (RR)",
+      "D": "Priority (Non-Preemptive)"
     },
     "answer": "C"
+  },
+  {
+    "question": "What does 'User Mode' signify in a CPU?",
+    "options": {
+      "A": "The processor has full access to all hardware",
+      "B": "The processor is restricted to a subset of instructions",
+      "C": "The processor is executing kernel code",
+      "D": "The processor is in a sleep state"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which IPC mechanism is fastest for large data transfers between processes?",
+    "options": {
+      "A": "Message Queues",
+      "B": "Pipes",
+      "C": "Shared Memory",
+      "D": "Sockets"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is a 'Race Condition'?",
+    "options": {
+      "A": "Two processes running at the same speed",
+      "B": "Output depends on the sequence or timing of uncontrollable events",
+      "C": "A deadlock situation where no process moves",
+      "D": "A process finishing faster than expected"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the purpose of the 'Dirty bit' in a page table entry?",
+    "options": {
+      "A": "To indicate the page is corrupted",
+      "B": "To indicate the page has been modified since being loaded",
+      "C": "To indicate the page is ready for deletion",
+      "D": "To indicate the page is read-only"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "In Linux, which directory contains special files representing hardware devices?",
+    "options": {
+      "A": "/etc",
+      "B": "/bin",
+      "C": "/dev",
+      "D": "/usr"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which C function is used to send a signal to a process?",
+    "options": {
+      "A": "signal()",
+      "B": "raise()",
+      "C": "kill()",
+      "D": "send()"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the 'Context' in context switching?",
+    "options": {
+      "A": "The code of the process",
+      "B": "The state of the CPU registers and program counter",
+      "C": "The command-line arguments",
+      "D": "The global variables of the process"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which algorithm is commonly used for page replacement to minimize page faults?",
+    "options": {
+      "A": "FIFO",
+      "B": "LRU (Least Recently Used)",
+      "C": "LIFO",
+      "D": "Random"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the function of 'I/O Bound' processes?",
+    "options": {
+      "A": "They spend most of their time doing computations",
+      "B": "They spend most of their time waiting for I/O",
+      "C": "They do not use the CPU at all",
+      "D": "They always run in kernel mode"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which shell command is used to display the currently loaded kernel modules?",
+    "options": {
+      "A": "modprobe",
+      "B": "insmod",
+      "C": "lsmod",
+      "D": "rmmod"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What does 'reentrant' mean for a function in a multi-threaded OS?",
+    "options": {
+      "A": "It can be called recursively",
+      "B": "It can be safely called by multiple threads simultaneously",
+      "C": "It cannot be interrupted",
+      "D": "It only uses global variables"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which concept allows the OS to use disk space as an extension of RAM?",
+    "options": {
+      "A": "Caching",
+      "B": "Spooling",
+      "C": "Virtual Memory",
+      "D": "Buffering"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the primary function of a 'Bootloader'?",
+    "options": {
+      "A": "To load the application software",
+      "B": "To load the operating system kernel into memory",
+      "C": "To manage the file system",
+      "D": "To partition the hard drive"
+    },
+    "answer": "B"
   }
 ]

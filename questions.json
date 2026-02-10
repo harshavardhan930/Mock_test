@@ -15,7 +15,7 @@
       "A": "register_chrdev()",
       "B": "alloc_chrdev_region()",
       "C": "cdev_add()",
-      "D": "All of the above"
+      "D": "All"
     },
     "answer": "D"
   },
@@ -25,7 +25,7 @@
       "A": "inode",
       "B": "file",
       "C": "dentry",
-      "D": "super_block"
+      "D": "super_b"
     },
     "answer": "B"
   },
